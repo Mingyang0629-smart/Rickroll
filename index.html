@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie clicker</title>
+    <link rel="icon" type="image/png" href="https://www.caseys.com/medias/sys_master/images/h07/h52/8796509798430/9843710106_base-400x400/9843710106-base-400x400.png">
+</head>
+<body>
+    <style>
+    @font-face {
+        font-family: Banner;
+        src: url(Amongus.ttf);
+    }
+
+
+    html {
+        margin: 0px;
+    }
+
+    #Cookie {
+        width: 350px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+   
+        transition-duration: 0.2s;
+  
+  
+
+}
+    
+
+    #Title {
+        text-align: center;
+        font-size: 100px;
+        font-family: Banner;
+    }
+    #Cookie:hover:not(.growup) {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    .growup {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+    </style>
+    <h1 id="Title">Cookie: 0</h1>
+   <center> <img id="Cookie"src="https://www.caseys.com/medias/sys_master/images/h07/h52/8796509798430/9843710106_base-400x400/9843710106-base-400x400.png" alt="Cookie"></center>
+    <audio id="Clicknoise"src="Click.mp3"></audio>
+
+    <script>
+        const cookie = document.getElementById("Cookie")
+        const clicknoise = document.getElementById("Clicknoise")
+        const title = document.getElementById("Title")
+        var cookies = 0 
+        cookie.addEventListener("click", () => {
+            if (!clicknoise.paused) {
+                clicknoise.pause()
+                clicknoise.play()
+                
+                cookie.classList.add("growup")
+                setTimeout(() => {
+                    cookie.classList.remove("growup")
+                },100)
+            }
+            else {
+                clicknoise.play()
+                cookie.classList.add("growup")
+            
+                setTimeout(() => {
+                    cookie.classList.remove("growup")
+                }, 100)
+            }
+            cookies += 1
+            title.innerText = `Cookies: ${cookies}`
+            if (cookies == 69) {
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley")
+            }
+        })
+    </script>
+</body>
+
+</html>
